@@ -117,19 +117,6 @@
       clearInterval(myTimer)
       submitButton.style.display = "inline-block"
     }
-    // if (currentSlide === 0) {
-    //   previousButton.style.display = "none";
-    // } else {
-    //   previousButton.style.display = "inline-block";
-    // }
-    
-    // if (currentSlide === slides.length - 1) {
-    //   nextButton.style.display = "none";
-    //   submitButton.style.display = "inline-block";
-    // } else {
-    //   nextButton.style.display = "inline-block";
-    //   submitButton.style.display = "none";
-    // }
   }
   
 
@@ -211,17 +198,9 @@
 
   function showResult(checkedValue){
     for (var word in checkedValue) {
-      // console.log(checkedValue[word]);
       var indicator = false;
-      correctAnswer.forEach((currentSection)=>{
-        // console.log(currentSection.code)
-        // console.log(currentSection.answers)
-        
+      correctAnswer.forEach((currentSection)=>{       
         for (var answer in currentSection.answers){
-          // console.log(currentSection.answers[answer])
-          // console.log(checkedValue[word])
-          // console.log(currentSection.answers[answer].includes(checkedValue[word]))
-          // console.log(numCorrect + " " + numWrong)
           if (currentSection.answers[answer].includes(checkedValue[word])){
             if (currentSection.code === 1)
               correct01++;
@@ -241,9 +220,7 @@
         pickWrongAnswer.push(checkedValue[word])
       }
     }
-    console.log(correct01)
-    console.log(correct02)
-    console.log(correct03)
+
     var output = [];
     var list01 = [];
     var list02 = [];
