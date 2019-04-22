@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   const myQuestions = [
     {
       question: "android",
@@ -202,12 +201,15 @@
   var checkedValue = []
   var pickCorrectAnswer = []
   var pickWrongAnswer = []
+  var correct01 = 0
+  var correct02 = 0
+  var correct03 = 0
+  var numCorrect = 0;
+  var numWrong = 0;
 
   buildFinal();
 
   function showResult(checkedValue){
-    var numCorrect = 0;
-    var numWrong = 0;
     for (var word in checkedValue) {
       // console.log(checkedValue[word]);
       var indicator = false;
@@ -216,11 +218,17 @@
         // console.log(currentSection.answers)
         
         for (var answer in currentSection.answers){
-          console.log(currentSection.answers[answer])
-          console.log(checkedValue[word])
-          console.log(currentSection.answers[answer].includes(checkedValue[word]))
-          console.log(numCorrect + " " + numWrong)
+          // console.log(currentSection.answers[answer])
+          // console.log(checkedValue[word])
+          // console.log(currentSection.answers[answer].includes(checkedValue[word]))
+          // console.log(numCorrect + " " + numWrong)
           if (currentSection.answers[answer].includes(checkedValue[word])){
+            if (currentSection.code === 1)
+              correct01++;
+            else if (currentSection.code === 2)
+              correct02++;
+            else if (currentSection.code === 3)
+              correct03++;
             numCorrect++;
             pickCorrectAnswer.push(checkedValue[word])
             indicator = true;
@@ -233,8 +241,9 @@
         pickWrongAnswer.push(checkedValue[word])
       }
     }
-    // console.log(numCorrect)
-    // console.log(numWrong)
+    console.log(correct01)
+    console.log(correct02)
+    console.log(correct03)
     var output = [];
     var list01 = [];
     var list02 = [];
@@ -263,6 +272,7 @@
     )
 
     resultContainer.innerHTML = output.join("");
+    upload(numWrong)
   }
 
   const resultContainer = document.getElementById("result");
@@ -287,7 +297,7 @@
 
   $('#start-button').click(() => {
     $("main").hide();
-    $("#question").show(500);
+    $("#finalQuestion").show(500);
   });
 
   if ('serviceWorker' in navigator) {
@@ -295,10 +305,22 @@
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
+  
+  var db = firebase.firestore();
 
-  function upload(checkedValue) {
-
+  function upload(numWrong) {
+    db.collection("test").add({
+      time: new Date().getTime() + "",
+      correct_01: correct01 + "",
+      correct_02: correct02 + "",
+      correct_03: correct03 + "",
+      wrong: numWrong + ""
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
   }
-
-
 })();
