@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Level of Processing Test</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles/materialize.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <script type="text/javascript" src="scripts/jquery-3.3.1.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCNNwRCwbm9h9BnH36K36sNLFWLFf13NwQ",
+        authDomain: "cognitive-science-4876f.firebaseapp.com",
+        databaseURL: "https://cognitive-science-4876f.firebaseio.com",
+        projectId: "cognitive-science-4876f",
+        storageBucket: "cognitive-science-4876f.appspot.com",
+        messagingSenderId: "1045928644477"
+      };
+      firebase.initializeApp(config);
+    </script> -->
+
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Template PWA">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <!-- Windows -->
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <link rel="icon"
+         type="image/png"
+         href="images/icons/icon-144x144.png">
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-wrapper blue darken-4">
+        <a href="#" class="brand-logo center">Cognitive Science</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content black-text">
+              <span class="card-title">Thank you for joining the test.</span>
+              <p>Your participation is highly appriciated.</p>
+              <hr>
+              <h3>Level of Processing</h3>
+              <p>The levels of processing model (Craik and Lockhart, 1972) focuses on the depth of processing involved in memory, and predicts the deeper information is processed, the longer a memory trace will last.</p>
+              <br>
+              <h5>Test instructions:</h5>
+              <p>In this test, you will be presented with some words(known as original words). Each word is associated with a question. Please answer in your mind.</p>
+              <br>
+              <p>After that, you will be given a long list of words into with the original words have been mixed.</p>
+              <br>
+              <p>You are required to pick out as many original words as you can.</p>
+            </div>
+          </div>
+
+          <button class="waves-effect waves-light btn-large" id="start-button" type="button" name="button">
+            Let's start!
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div class="container hidden" id="question">
+      <div class="row">
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content black-text">
+              <div class="quiz-container">
+                <div id="quiz"></div>
+              </div>
+              <button id="previous">Previous Question</button>
+              <button id="next">Next Question</button>
+              <button id="submit">Proceed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hidden" id="finalQuestion">
+      <div class="row">
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content black-text">
+              <!-- <div class="quiz-container"> -->
+                <div id="final"></div>
+              <!-- </div> -->
+              <button id="done">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hidden" id="resultPage">
+      <div class="row">
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content black-text">
+              <span class="card-title"><strong>Thank you for your participation!</strong></span>
+              <div class="resultContainer">
+                <div id="result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="scripts/app.js"></script>
+  </body>
+</html>
