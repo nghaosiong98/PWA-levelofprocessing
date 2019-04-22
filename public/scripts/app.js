@@ -274,7 +274,7 @@
 
   $('#start-button').click(() => {
     $("main").hide();
-    $("#finalQuestion").show(500);
+    $("#question").show(500);
   });
 
   if ('serviceWorker' in navigator) {
