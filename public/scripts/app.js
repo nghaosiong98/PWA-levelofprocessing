@@ -107,7 +107,7 @@
       question: "Does the word go in this sentence?",
       answers: {
         a: "lamborghini",
-        b: "The <u>lamborghini</u> is the cheapest car in the word!"
+        b: "The <u>lamborghini</u> is the cheapest car in the world!"
       }
     },
     {
@@ -181,6 +181,7 @@
   }
 
   function showSlide(n) {
+    move()
     slides[currentSlide].classList.remove("active-slide");
     slides[n].classList.add("active-slide");
     currentSlide = n;
@@ -322,6 +323,22 @@
     upload(numWrong)
   }
 
+  function move() {
+    var elem = document.getElementById("myBar"); 
+    var width = 1;
+    var id = setInterval(frame, 35);
+    function frame() {
+      if (currentSlide === slides.length - 1){
+        elem.style.width = '100%'
+      }else if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+      }
+    }
+  }
+
   const resultContainer = document.getElementById("result");
 
   $('#done').click(()=>{
@@ -344,11 +361,12 @@
 
   $('#start-button').click(() => {
     $("main").hide();
-    $("#question").show(1000);
+    $("#question").show(500);
+    // sleep(1000).then(() => {
+    //   showSlide(0);
+    // });
     showSlide(0);
-    sleep(1000).then(() => {
-      myTimer = setInterval(showNextSlide, 3500);
-    });
+    myTimer = setInterval(showNextSlide, 3500);
   });
 
   if ('serviceWorker' in navigator) {

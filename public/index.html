@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
 
     <title>Level of Processing Test</title>
 
@@ -84,12 +87,16 @@
         <div class="col s12">
           <div class="card white">
             <div class="card-content black-text">
+              
               <div class="quiz-container">
                 <div id="quiz"></div>
               </div>
               <button id="previous">Previous Question</button>
               <button id="next">Next Question</button>
               <button id="submit">Proceed</button>
+            </div>
+            <div id="myProgress">
+              <div id="myBar"></div>
             </div>
           </div>
         </div>

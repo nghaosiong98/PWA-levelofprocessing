@@ -115,4 +115,13 @@ button:hover{
   float: right;
 }
 
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
 
+#myBar {
+  width: 1%;
+  height: 15px;
+  background-color: #38a;
+}
