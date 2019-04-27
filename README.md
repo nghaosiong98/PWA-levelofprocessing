@@ -15,5 +15,9 @@ After that, you will be given a long list of words into with the original words 
 
 You are required to pick out as many original words as you can.
 
-Credit:
+#### Link to the test
+[levelofprocessing.ml](http://levelofprocessing.ml)
+
+
+#### Credit:
 [@huaiyukhaw](http://github.com/huaiyukhaw) - Setting up the domain :D
