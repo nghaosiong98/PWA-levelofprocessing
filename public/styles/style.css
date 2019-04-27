@@ -54,6 +54,7 @@ button{
     border-radius: 3px;
     padding: 20px;
     cursor: pointer;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 button:hover{
@@ -74,15 +75,18 @@ button:hover{
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s;
+  margin-bottom: 10px;
 }
 .active-slide{
   opacity: 1;
   z-index: 2;
 }
+
 .quiz-container{
   position: relative;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 #checkboxes label {
@@ -110,4 +114,5 @@ button:hover{
   width: 12em;
   float: right;
 }
+
 

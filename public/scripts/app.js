@@ -2,78 +2,147 @@
   'use strict';
   const myQuestions = [
     {
-      question: "android",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Is the word in capital letter?"
+        a: "android"
       }
     },
     {
-      question: "APPLE?",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Is the word in capital letter?"
+        a: "APPLE"
       }
     },
     {
-      question: "COMPUTER",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Is the word in capital letter?"
+        a: "COMPUTER"
       }
     },
     {
-      question: "dog",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Does the word rhyme with frog?"
+        a: "dog"
       }
     },
     {
-      question: "trumpet",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Does the word rhyme with trombone?"
+        a: "TRUMPET"
       }
     },
     {
-      question: "library",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Does the word rhyme with liability?"
+        a: "dolphin"
       }
     },
     {
-      question: "banana",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Does the word go in this sentence?",
-        b: "Banana is yellow."
-      }
-    },,
-    {
-      question: "smart",
-      answers: {
-        a: "Does the word go in this sentence?",
-        b: "I am smart."
+        a: "CAPITAL"
       }
     },
     {
-      question: "egg",
+      question: "Is the word in capital letter?",
       answers: {
-        a: "Does the word go in this sentence?",
-        b: "Cat lays egg."
+        a: "ringgit"
+      }
+    },
+    {
+      question: "Is the word in capital letter?",
+      answers: {
+        a: "hockey"
+      }
+    },
+    {
+      question: "Is the word in capital letter?",
+      answers: {
+        a: "ZOO"
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "library",
+        b: "The <u>library</u> is close today."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "banana",
+        b: "<u>Banana</u> is yellow."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "smart",
+        b: "I am <u>smart</u>."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "egg",
+        b: "Cat lays <u>egg</u>."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "blue",
+        b: "The laptop is having <u>blue</u> screen."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "coffee",
+        b: "The <u>coffee</u> is so black!"
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "lamborghini",
+        b: "The <u>lamborghini</u> is the cheapest car in the word!"
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "rubber",
+        b: "We need to wear <u>rubber</u> glove before the handling acid."
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "red",
+        b: "Please pass me the <u>red</u> pen!"
+      }
+    },
+    {
+      question: "Does the word go in this sentence?",
+      answers: {
+        a: "hand",
+        b: "Put your <u>hand</u> up!"
       }
     }
   ];
 
-  const finalCollection = ["library", "fish", "android", "egg", "chicken", "pineapple", "cat", "dog", "banana", "computer", "pizza", "ipad", "apple", "smart", "trumpet", "trombone", "burger", "laptop"];
+  const finalCollection = ["library", "fish", "android", "egg", "chicken", "lamborghini", "pineapple", "cat", "dog", "banana", "computer", "pizza", "ipad", "apple", "smart", "trumpet", "trombone", "burger", "laptop", "yellow", "dolphin", "hand", "red", "ferrari", "coffee", "rubber", "blue", "muffin", "capital", "ringgit", "basketball", "perodua", "rupee","zoo", "hockey"];
 
   const correctAnswer = [
     {
       code: 1,
-      answers:["android", "apple", "computer"]
+      answers:["android", "apple", "computer","dog", "trumpet","dolphin","capital", "ringgit", "hockey", "zoo"]
     },
     {
       code:2,
-      answers:["dog", "trumpet", "library"]
-    },
-    {
-      code:3,
-      answers:["banana", "smart", "egg"]
+      answers:["library","banana", "smart", "egg","blue","coffee","lamborghini","rubber","red","hand"]
     }
   ];
 
@@ -81,7 +150,7 @@
   function buildQuiz() {
     // we'll need a place to store the HTML output
     const output = [];
-
+    var counter = 1;
     // for each question...
     myQuestions.forEach((currentQuestion) => {
       // we'll want to store the list of answer choices
@@ -98,10 +167,13 @@
       // add this question and its answers to the output
       output.push(
         `<div class="slide">
+          <p>Question ${counter}</p><br>
            <div class="question"> ${currentQuestion.question} </div>
            <div class="answers"> ${answers.join("")} </div>
          </div>`
       );
+
+      counter++;
     });
 
     // finally combine our output list into one string of HTML and put it on the page
@@ -144,7 +216,7 @@
   submitButton.style.display = "none";
 
   
-  showSlide(0);
+  
 
   // sleep time expects milliseconds
   function sleep (time) {
@@ -152,9 +224,7 @@
   }
   var myTimer;
   // Usage!
-  sleep(1000).then(() => {
-    myTimer = setInterval(showNextSlide, 3500);
-  });
+  
 
   
   previousButton.addEventListener("click", showPreviousSlide);
@@ -168,7 +238,7 @@
 
     for(var word in finalCollection){
       words.push(
-        `<label><input class="optionCheckbox" type="checkbox" name="word" value="${finalCollection[word]}">${finalCollection[word]}</label>`
+        `<label><input class="optionCheckbox" type="checkbox" name="word" value="${finalCollection[word]}">&nbsp;&nbsp;${finalCollection[word]}</label>`
       );
     }
 
@@ -238,11 +308,11 @@
     }
 
     output.push(
-      `<p>Correct words: ${numCorrect}/9</p>
+      `<p>Correct words: ${numCorrect}/20</p>
       <ul>
       ${list01.join('')}
       </ul>
-      <p>Wrong words selected: ${numWrong}/9</p>
+      <p>Wrong words selected: ${numWrong}/13</p>
       <ul>
       ${list02.join("")}
       </ul>`
@@ -274,7 +344,11 @@
 
   $('#start-button').click(() => {
     $("main").hide();
-    $("#question").show(500);
+    $("#question").show(1000);
+    showSlide(0);
+    sleep(1000).then(() => {
+      myTimer = setInterval(showNextSlide, 3500);
+    });
   });
 
   if ('serviceWorker' in navigator) {
@@ -285,16 +359,17 @@
   
   var db = firebase.firestore();
 
+
   function upload(numWrong) {
-    db.collection("test").add({
-      time: new Date().getTime() + "",
+    var docID = new Date().getTime()+"";
+    db.collection("test").doc(docID).set({
+      // time: new Date().getTime() + "",
       correct_01: correct01 + "",
       correct_02: correct02 + "",
-      correct_03: correct03 + "",
       wrong: numWrong + ""
     })
     .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
+        console.log("Document written with ID: ", docID);
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
