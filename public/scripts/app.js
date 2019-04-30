@@ -133,7 +133,7 @@
     }
   ];
 
-  const finalCollection = ["library", "fish", "android", "egg", "chicken", "lamborghini", "pineapple", "cat", "dog", "banana", "computer", "pizza", "ipad", "apple", "smart", "trumpet", "trombone", "burger", "laptop", "yellow", "dolphin", "hand", "red", "ferrari", "coffee", "rubber", "blue", "muffin", "capital", "ringgit", "basketball", "perodua", "rupee","zoo", "hockey"];
+  const finalCollection = ["seven", "library", "bottle", "fish", "lawyer", "android", "egg", "white", "chicken", "mouse","lamborghini", "competition", "kid", "ability", "simple", "pineapple", "cat", "newspaper", "education", "dog", "banana", "computer", "doctor", "night", "pizza", "ipad", "apple","woman", "smart", "spring", "trumpet", "officer", "green","iphone", "trombone", "billion", "country", "burger", "laptop", "government", "party","material", "yellow", "dolphin", "hand", "red", "ferrari", "coffee", "rubber", "blue", "muffin", "capital", "ringgit", "basketball", "dream", "perodua","zoo", "hockey", "daughter", "summer"];
 
   const correctAnswer = [
     {
@@ -313,7 +313,7 @@
       <ul>
       ${list01.join('')}
       </ul>
-      <p>Wrong words selected: ${numWrong}/13</p>
+      <p>Wrong words selected: ${numWrong}/40</p>
       <ul>
       ${list02.join("")}
       </ul>`
